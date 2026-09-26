@@ -1,0 +1,26 @@
+replicaCount: 3
+
+image:
+  repository: releaseforge-api
+  tag: "0.4"
+  pullPolicy: IfNotPresent
+
+service:
+  type: NodePort
+  port: 8000
+  targetPort: 8000
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 128Mi
+  limits:
+    cpu: 500m
+    memory: 512Mi
+
+postgres:
+  image: postgres:16-alpine
+  database: releaseforge
+  username: releaseforge
+  password: releaseforge-dev-password
+  storage: 1Gi
