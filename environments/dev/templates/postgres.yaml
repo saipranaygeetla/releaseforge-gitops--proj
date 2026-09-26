@@ -34,7 +34,7 @@ spec:
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: postgres
+  name: {{ .Release.Name }}-postgres
 spec:
   serviceName: {{ .Release.Name }}-postgres
   replicas: 1
