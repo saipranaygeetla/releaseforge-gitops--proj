@@ -15,7 +15,7 @@ metadata:
 spec:
   clusterIP: None
   selector:
-    app: postgres
+    app: {{ .Release.Name }}-postgres
   ports:
     - port: 5432
       targetPort: 5432
@@ -40,11 +40,11 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: postgres
+      app: {{ .Release.Name }}-postgres
   template:
     metadata:
       labels:
-        app: postgres
+        app: {{ .Release.Name }}-postgres
     spec:
       containers:
         - name: postgres
